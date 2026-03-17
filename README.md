@@ -72,8 +72,10 @@ User roles can be extended using inheritance.
 
 Example concept:
 
+```
 User
 └── AdminUser
+```
 
 ### Packages
 
@@ -162,6 +164,7 @@ Terminal-Task-Manager
 
 ## Example CLI Interface
 
+```
 ===== TERMINAL TASK MANAGER ===== 1. Add Task 2. View Tasks 3. Search Task 4. Mark Task Complete 5. Delete Task 6. Exit
 
 Enter your choice:
@@ -176,6 +179,8 @@ Task added successfully.
 
 View Tasks
 [1] Finish Java Project - Pending
+```
+
 
 ---
 
