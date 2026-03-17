@@ -81,12 +81,14 @@ The project is organized into packages for maintainability.
 
 Example structure:
 
+```
 taskmanager
 │
 ├── model
 ├── service
 ├── exception
 └── main
+```
 
 ### Exception Handling
 
@@ -134,6 +136,7 @@ Collections are traversed using Java **Iterators** to display task information.
 
 ## Project Structure
 
+```
 Terminal-Task-Manager
 │
 ├── src
@@ -153,6 +156,7 @@ Terminal-Task-Manager
 │ └── MainApplication
 │
 └── README.md
+```
 
 ---
 

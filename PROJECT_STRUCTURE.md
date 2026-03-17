@@ -6,14 +6,14 @@ The project follows a modular structure to keep the code clean, readable, and ma
 ---
 
 # Root Directory
-
+```
 terminal-task-manager
 │
 ├── src
 ├── README.md
 ├── PROJECT_STRUCTURE.md
 └── .gitignore
-
+```
 ### Files
 
 **README.md**  
@@ -31,12 +31,14 @@ Prevents unnecessary system files and compiled Java files from being added to th
 
 All Java source files are located inside the `src` folder.
 
+```
 src
 │
 ├── main
 ├── model
 ├── service
 └── exception
+```
 
 Each folder represents a logical component of the application.
 
@@ -65,11 +67,13 @@ The main loop of the CLI runs here.
 
 # model
 
+```
 src/model
 │
 ├── Task
 ├── User
 └── AdminUser
+```
 
 ### Purpose
 
@@ -147,10 +151,12 @@ The class internally manages collections such as:
 
 # exception
 
+```
 src/exception
 │
 ├── TaskNotFoundException
 └── InvalidTaskException
+```
 
 ### Purpose
 
