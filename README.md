@@ -223,15 +223,18 @@ Possible enhancements include:
 
 ---
 
-## Author
+## Authors
 
-**Brijraj Singh Bhati**
+- A002 - **Brijraj Singh Bhati** -- Lead Developer & System Architect
+- A015 - **Khushi Mendon** -- Core Logic Engineer
+- A041 - **Manan Parmar** -- Interface & CLI Engineer
 
-Computer Science Student  
+Diploma in Computer Engineering
+Year 2 Semester IV 
 NMIMS Mumbai
 
 ---
 
 ## License
 
-This project is created for **educational purposes** as part of Java Programming Semester-end submission.
+This project is created for **EDUCATIONAL PURPOSES** as part of The Java Programming Semester-end Project Submission.
