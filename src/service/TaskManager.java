@@ -1,8 +1,9 @@
 package service;
 
-import model.Task;
 import java.util.ArrayList;
 import java.util.Iterator;
+import model.Task;
+import util.Logger;
 
 public class TaskManager {
 
@@ -25,12 +26,13 @@ public class TaskManager {
   // View Tasks
   public void viewTasks() {
     if (taskList.isEmpty()) {
-      System.out.println("No tasks available.");
+      Logger.warn("No tasks available.");
       return;
     }
 
+    Logger.section("TASK LIST");
     for (Task task : taskList) {
-      System.out.println(task);
+      Logger.info(task.toString());
     }
   }
 
@@ -42,12 +44,12 @@ public class TaskManager {
       Task task = iterator.next();
       if (task.getId() == id) {
         iterator.remove();
-        System.out.println("Task deleted.");
+        Logger.success("Task deleted.");
         return;
       }
     }
 
-    System.out.println("Task not found.");
+    Logger.error("Task not found.");
   }
 
   // Mark Task Complete
@@ -55,27 +57,28 @@ public class TaskManager {
     for (Task task : taskList) {
       if (task.getId() == id) {
         task.markComplete();
-        System.out.println("Task marked as completed.");
+        Logger.success("Task marked as completed.");
         return;
       }
     }
 
-    System.out.println("Task not found.");
+    Logger.error("Task not found.");
   }
 
   // Search Task
   public void searchTask(String keyword) {
+    Logger.section("SEARCH RESULTS");
     boolean found = false;
 
     for (Task task : taskList) {
       if (task.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
-        System.out.println(task);
+        Logger.info(task.toString());
         found = true;
       }
     }
 
     if (!found) {
-      System.out.println("No matching tasks found.");
+      Logger.warn("No matching tasks found.");
     }
   }
 }
