@@ -23,8 +23,8 @@ public class MainApplication {
       System.out.println("  [3] Mark Task Complete");
       System.out.println("  [4] Delete Task");
       System.out.println("  [5] Search Task");
-      System.out.println("  [6] Exit");
-      System.out.println("  [7] View Task Details (TESTING)");
+      System.out.println("  [6] View Task Details");
+      System.out.println("  [7] Exit");
 
       System.out.print("\nSelect option → ");
 
@@ -92,12 +92,6 @@ public class MainApplication {
           break;
 
         case 6:
-          Logger.type("Shutting down...", 25);
-          Logger.sys("Exiting application...");
-          sc.close();
-          return;
-
-        case 7:
           Logger.info("Enter task ID:");
           int detailId = sc.nextInt();
           sc.nextLine();
@@ -109,6 +103,12 @@ public class MainApplication {
           Logger.info("Press Enter to continue...");
           sc.nextLine();
           break;
+
+        case 7:
+          Logger.type("Shutting down...", 25);
+          Logger.sys("Exiting application...");
+          sc.close();
+          return;
 
         default:
           Logger.error("Invalid choice. Try again.");
