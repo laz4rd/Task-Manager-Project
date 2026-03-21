@@ -32,7 +32,12 @@ public class TaskManager {
 
     Logger.section("TASK LIST");
     for (Task task : taskList) {
-      Logger.info(task.toString());
+      Logger.taskBox(
+          task.getId(),
+          task.getTitle(),
+          task.getPriority(),
+          task.isCompleted()
+      );
     }
   }
 
@@ -72,7 +77,12 @@ public class TaskManager {
 
     for (Task task : taskList) {
       if (task.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
-        Logger.info(task.toString());
+        Logger.taskBox(
+            task.getId(),
+            task.getTitle(),
+            task.getPriority(),
+            task.isCompleted()
+        );
         found = true;
       }
     }
@@ -80,5 +90,23 @@ public class TaskManager {
     if (!found) {
       Logger.warn("No matching tasks found.");
     }
+  }
+
+  public void viewTaskDetails(int id) {
+    for (Task task : taskList) {
+      if (task.getId() == id) {
+
+        Logger.section("TASK DETAILS");
+
+        System.out.println("Title       : " + task.getTitle());
+        System.out.println("Description : " + task.getDescription());
+        System.out.println("Priority    : " + task.getPriority());
+        System.out.println("Status      : " + (task.isCompleted() ? "Completed" : "Pending"));
+
+        return;
+      }
+    }
+
+    Logger.error("Task not found.");
   }
 }

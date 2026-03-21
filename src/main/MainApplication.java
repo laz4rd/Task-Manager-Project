@@ -24,6 +24,7 @@ public class MainApplication {
       System.out.println("  [4] Delete Task");
       System.out.println("  [5] Search Task");
       System.out.println("  [6] Exit");
+      System.out.println("  [7] View Task Details (TESTING)");
 
       System.out.print("\nSelect option → ");
 
@@ -95,6 +96,19 @@ public class MainApplication {
           Logger.sys("Exiting application...");
           sc.close();
           return;
+
+        case 7:
+          Logger.info("Enter task ID:");
+          int detailId = sc.nextInt();
+          sc.nextLine();
+
+          Logger.type("Fetching details...", 25);
+          manager.viewTaskDetails(detailId);
+
+          System.out.println();
+          Logger.info("Press Enter to continue...");
+          sc.nextLine();
+          break;
 
         default:
           Logger.error("Invalid choice. Try again.");

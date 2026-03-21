@@ -27,6 +27,9 @@ public class Task {
   }
 
   public String getDescription() {
+    return _descriptionString;
+  }
+  public String getPriority() {
     return _priorityString;
   }
 
