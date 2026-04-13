@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import model.Task;
 import util.Logger;
+import exception.InvalidTaskException;
+import exception.TaskNotFoundException;
 
 public class TaskManager {
 
@@ -17,8 +19,17 @@ public class TaskManager {
   }
 
   // Add Task
-  public void addTask(String title, String description, String priority) {
-    Task task = new Task(nextId, title, description, priority);
+  public void addTask(String title, String description, String priority) throws InvalidTaskException {
+    if (title == null || title.trim().isEmpty()) {
+      throw new InvalidTaskException("Title cannot be empty");
+    }
+    if (description == null) {
+      throw new InvalidTaskException("Description cannot be null");
+    }
+    if (priority == null || !priority.matches("(?i)HIGH|MEDIUM|LOW")) {
+      throw new InvalidTaskException("Priority must be HIGH, MEDIUM, or LOW");
+    }
+    Task task = new Task(nextId, title, description, priority.toUpperCase());
     taskList.add(task);
     nextId++;
   }
@@ -42,7 +53,7 @@ public class TaskManager {
   }
 
   // Delete Task
-  public void deleteTask(int id) {
+  public void deleteTask(int id) throws TaskNotFoundException {
     Iterator<Task> iterator = taskList.iterator();
 
     while (iterator.hasNext()) {
@@ -54,11 +65,11 @@ public class TaskManager {
       }
     }
 
-    Logger.error("Task not found.");
+    throw new TaskNotFoundException("Task with ID " + id + " not found");
   }
 
   // Mark Task Complete
-  public void markTaskComplete(int id) {
+  public void markTaskComplete(int id) throws TaskNotFoundException {
     for (Task task : taskList) {
       if (task.getId() == id) {
         task.markComplete();
@@ -67,7 +78,7 @@ public class TaskManager {
       }
     }
 
-    Logger.error("Task not found.");
+    throw new TaskNotFoundException("Task with ID " + id + " not found");
   }
 
   // Search Task
@@ -92,7 +103,7 @@ public class TaskManager {
     }
   }
 
-  public void viewTaskDetails(int id) {
+  public void viewTaskDetails(int id) throws TaskNotFoundException {
     for (Task task : taskList) {
       if (task.getId() == id) {
 
@@ -107,6 +118,6 @@ public class TaskManager {
       }
     }
 
-    Logger.error("Task not found.");
+    throw new TaskNotFoundException("Task with ID " + id + " not found");
   }
 }
