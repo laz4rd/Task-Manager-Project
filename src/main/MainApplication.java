@@ -189,10 +189,9 @@ public class MainApplication {
 
     if (currentUser instanceof AdminUser) {
       System.out.println("  [8] Manage Users");
-      System.out.println("  [9] View All Tasks (Admin)");
-      System.out.println("  [10] System Settings");
-      System.out.println("  [11] Logout");
-      System.out.println("  [12] Exit");
+      System.out.println("  [9] System Settings");
+      System.out.println("  [10] Logout");
+      System.out.println("  [11] Exit");
     } else {
       System.out.println("  [8] Logout");
       System.out.println("  [9] Exit");
@@ -286,19 +285,12 @@ public class MainApplication {
         }
         break;
       case 9:
-        if (admin.canViewAllTasks()) {
-          viewAllTasksAdmin();
-        } else {
-          permissionDenied();
-        }
-        break;
-      case 10:
         systemSettings();
         break;
-      case 11:
+      case 10:
         logout();
         return true;
-      case 12:
+      case 11:
         exit();
         return false;
       default:
